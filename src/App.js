@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import Postview from './components/Postview';
+import LandingPage from './components/LandingPage'
+import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
+import CreatePost from './components/CreatePost';
+import { PostContextProvider } from './components/PostContext';
+
+function PostComp() {
+  return (
+    <div>
+      <h3>Main Post Comp</h3>
+      <Outlet />
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <PostContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/posts' element={<PostComp />}/>
+              <Route path="view" element={<Postview />} />
+              <Route path="create" element={<CreatePost />}/>
+              <Route path="/" element={<LandingPage />}/>
+          </Routes>
+        </BrowserRouter>
+      </PostContextProvider>
+    </>
   );
 }
 
