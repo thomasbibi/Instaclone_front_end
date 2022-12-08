@@ -20,9 +20,10 @@ function App() {
       <PostContextProvider>
         <BrowserRouter>
           <Routes>
-            <Route path='/posts' element={<PostComp />}/>
+            <Route path='/posts' element={<PostComp />}>
               <Route path="view" element={<Postview />} />
               <Route path="create" element={<CreatePost />}/>
+              </Route>
               <Route path="/" element={<LandingPage />}/>
           </Routes>
         </BrowserRouter>

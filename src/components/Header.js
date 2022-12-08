@@ -8,6 +8,7 @@ export default function Header() {
         <div className="app-header">
             <div className="div-logo">
                 <img id="logo" src={logo} alt="logo" />
+                <h3>Instaclone</h3>
             </div>
             <div className="div-cameraicon">
                 <Link to="/posts/create"><img id="cameraicon" src={cameraicon} alt="cameraicon"/></Link>
